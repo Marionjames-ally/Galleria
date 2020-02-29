@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  {% if title %}
+  <title>Galleria {{title}}</title>
+  {% else %}
+    <title> Galleria | Marion </title>
+  {% endif %}
+
+</head>
+<body>
+    {% block content %}
+    
+    {%endblock%}
+</body>
+</html>
