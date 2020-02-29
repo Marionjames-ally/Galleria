@@ -11,7 +11,7 @@ class Image(models.Model):
     image_post_date =models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.post_image
+        return self.image_title
 
     def save_image(self):
         self.save
