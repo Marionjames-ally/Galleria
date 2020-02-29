@@ -1,4 +1,5 @@
 from django.db import models
+import datetime as dt
 
 # Create your models here.
 class Image(models.Model):
@@ -6,6 +7,22 @@ class Image(models.Model):
     image_name =models.CharField(max_length =30),
     image_description = models.CharField(max_length = 150),
     image_location = models.ForeignKey("Location", on_delete=models.CASCADE)
+    image_category = models.ForeignKey("Category", on_delete=models.CASCADE)
+    image_post_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+    def save_image(self):
+        self.save
+
+    class Meta:
+        ordering = ['title']
+
+    @classmethod
+    def get_images(cls):
+        Images = cls.objects.all()
+        return  Images
 
 class Location(mmodels.Model):
     location = models.CharField(max_length = 60)
@@ -21,6 +38,6 @@ class Location(mmodels.Model):
 
 class Category(models.Model):
     category = models.CharField(max_length = 30),
-    
+
 
 
