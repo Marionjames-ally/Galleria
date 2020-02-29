@@ -4,7 +4,7 @@ import datetime as dt
 # Create your models here.
 class Image(models.Model):
     image = models.ImageField(upload_to='gallery/'),
-    image_name =models.CharField(max_length =30),
+    image_title =models.CharField(max_length =30),
     image_description = models.CharField(max_length = 150),
     image_location = models.ForeignKey("Location", on_delete=models.CASCADE)
     image_category = models.ForeignKey("Category", on_delete=models.CASCADE)
@@ -16,15 +16,15 @@ class Image(models.Model):
     def save_image(self):
         self.save
 
-    class Meta:
-        ordering = ['title']
+    # class Meta:
+    #     ordering = ['title']
 
     @classmethod
     def get_images(cls):
         Images = cls.objects.all()
         return  Images
 
-class Location(mmodels.Model):
+class Location(models.Model):
     location = models.CharField(max_length = 60)
 
     @classmethod
