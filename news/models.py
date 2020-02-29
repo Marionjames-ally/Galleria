@@ -11,7 +11,7 @@ class Image(models.Model):
     image_post_date =models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.image_title
+        return self.post_image
 
     def save_image(self):
         self.save
@@ -26,15 +26,21 @@ class Location(models.Model):
 
     @classmethod
     def get_location(cls):
-        location = cls.objects.all()
-        return location
+        image_location = cls.objects.all()
+        return image_location
 
     @classmethod
     def del_location(cls, id):
         cls.objects.filter(id = id).delete()
 
 class Category(models.Model):
-    category = models.CharField(max_length = 60, default = 'category')
+    image_category = models.CharField(max_length = 60, default = 'category')
+    
+    @classmethod
+    def search_category(cls,search_term):
+        category = cls.objects.get(cat__icontains=search_term)
+        return category
 
-
-
+    @classmethod
+    def del_category(cls, id):
+        cls.objects.filter(id = id).delete()
