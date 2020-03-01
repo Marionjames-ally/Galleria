@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from .models import Image,Category,Location
 
 # Create your views here.
@@ -7,17 +7,16 @@ def home(request):
     return render(request, 'all-images/index.html')
     print('hello world')
 
-
-
 def search_results(request):
+        if 'category' in request.GET and request.GET["category"]:
+            search_term = request.GET.get("category")
+            searched_category = Category.search_category(search_term)
+            message = f"{search_term}"
 
-    if 'image' in request.GET and request.GET["image"]:
-        searched_term = request.GET.get("image")
-        searched_images = Image.search_by_image_title(searched_term)
-        message = f"{searched_term}"
+            searched_image = Image.get_pics_cat(searched_category)
 
-        return render(request, 'all-Images/search.html',{"message":message,"images": searched_images})
+            return redirect(request, 'all-images/search.html',{"message":message,'photo':searched_image, 'locations':locations})
 
-    else:
-        message = "You haven't searched for any term"
-        return render(request, 'all-images/search.html',{"message":message})
+        else:
+            message = 'You haven\'t searched for any item'
+            return render(request, 'all-images/search.html', {'message':message})

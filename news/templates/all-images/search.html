@@ -3,10 +3,10 @@
 <div class="container">
 
   <div class="row">
-    {% if images%}
+    {% if images %}
       <h2>Found {{ images|length }} of searched term {{message}}</h2>
     {% else %}
-      <h2> Found 0 articles for the search term {{message}}</h2>
+      <h2> Found 0 images for the search term {{message}}</h2>
     {% endif %}
 
   </div>
@@ -17,10 +17,8 @@
     {% for image in images %}
       <div class="col-sm-6 col-md-3">
       <div class="card">
-          <h1 class="card-tite">{{image.post_image}}</h1>
           <p class="card-body">{{image.image_title}}</p>
-          {% comment %} <p class="card-body">{{article.pub_date}}</p> {% endcomment %}
-          <img src="{{article.article_image.url}}" width="500rem" >
+          <img src="{{image.post_image.url}}" width="500rem" >
           </div>
       </div>
     {% endfor %}

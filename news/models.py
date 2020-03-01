@@ -16,13 +16,25 @@ class Image(models.Model):
     def save_image(self):
         self.save
 
+    class Meta:
+        ordering = ['image_title']
+
     @classmethod
     def get_images(cls):
         Images = cls.objects.all()
         return  Images
+    
+    @classmethod
+    def get_pics_cat(cls,categ):
+        categ_images = cls.objects.filter(category = categ)
+
+        return categ_images
 
 class Location(models.Model):
     location = models.CharField(max_length = 60)
+
+    class Meta:
+        ordering = ['location']
 
     @classmethod
     def get_location(cls):
@@ -36,6 +48,9 @@ class Location(models.Model):
 class Category(models.Model):
     image_category = models.CharField(max_length = 60, default = 'category')
     
+    class Meta:
+        ordering = ['image_category']
+
     @classmethod
     def search_category(cls,search_term):
         category = cls.objects.get(cat__icontains=search_term)
