@@ -8,14 +8,14 @@ def home(request):
     print('hello world')
 
 def search_results(request):
+        
         if 'category' in request.GET and request.GET["category"]:
             search_term = request.GET.get("category")
             searched_category = Category.search_category(search_term)
             message = f"{search_term}"
 
-            searched_image = Image.get_pics_cat(searched_category)
-
-            return redirect(request, 'all-images/search.html',{"message":message,'photo':searched_image, 'locations':locations})
+            searched_image = Image.get_pics_category(searched_category)
+            return redirect(request, 'all-images/search.html',{"message":message,'Images':searched_image})
 
         else:
             message = 'You haven\'t searched for any item'

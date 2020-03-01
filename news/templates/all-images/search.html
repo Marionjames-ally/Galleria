@@ -14,11 +14,11 @@
   <div class="row">
 
   {% if images %}
-    {% for image in images %}
+    {% for photos in Images %}
       <div class="col-sm-6 col-md-3">
       <div class="card">
-          <p class="card-body">{{image.image_title}}</p>
-          <img src="{{image.post_image.url}}" width="500rem" >
+          <p class="card-title">{{photos.image_title}}</p>
+          <img src="{{photos.post_image}}" width="500rem" >
           </div>
       </div>
     {% endfor %}
