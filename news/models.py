@@ -33,6 +33,9 @@ class Image(models.Model):
 class Location(models.Model):
     location = models.CharField(max_length = 60)
 
+    def __str__(self):
+        return self.location
+
     class Meta:
         ordering = ['location']
 
@@ -47,6 +50,9 @@ class Location(models.Model):
 
 class Category(models.Model):
     image_category = models.CharField(max_length = 60, default = 'category')
+
+    def __str__(self):
+        return self.image_category
     
     class Meta:
         ordering = ['image_category']
