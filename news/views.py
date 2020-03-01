@@ -15,8 +15,9 @@ def search_results(request):
             message = f"{search_term}"
 
             searched_image = Image.get_pics_category(searched_category)
-            return redirect(request, 'all-images/search.html',{"message":message,'Images':searched_image})
+            return render (request, 'all-images/search.html',{"message":message,'Images':searched_image})
 
         else:
             message = 'You haven\'t searched for any item'
             return render(request, 'all-images/search.html', {'message':message})
+
