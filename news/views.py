@@ -12,11 +12,11 @@ def home(request):
 def search_results(request):
 
     if 'image' in request.GET and request.GET["image"]:
-        search_term = request.GET.get("image")
-        searched_images = Image.search_by_image_title(search_term)
-        message = f"{search_term}"
+        searched_term = request.GET.get("image")
+        searched_images = Image.search_by_image_title(searched_term)
+        message = f"{searched_term}"
 
-        return render(request, 'all-Images/search.html',{"message":message,"articles": searched_images})
+        return render(request, 'all-Images/search.html',{"message":message,"images": searched_images})
 
     else:
         message = "You haven't searched for any term"
