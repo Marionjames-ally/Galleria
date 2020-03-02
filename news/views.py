@@ -1,11 +1,12 @@
 from django.shortcuts import render , redirect
+from django.http import Http404,request,HttpResponse
 from .models import Image,Category,Location
 
 # Create your views here.
-def home(request):
-    
-    return render(request, 'all-images/index.html')
-    print('hello world')
+def all_photos(request):
+    gallery = Image.get_images()
+    locations = Location.get_location()
+    return render(request, 'all-images/index.html', {"gallery": gallery, "locations":locations})
 
 def search_results(request):
         
@@ -21,3 +22,11 @@ def search_results(request):
             message = 'You haven\'t searched for any item'
             return render(request, 'all-images/search.html', {'message':message})
 
+def single_image(request, image_id):
+    try:
+        gallery = Image.objects.get(id = image_id)
+    except:
+        raise Http404()
+
+    locations = Location.get_location()
+    return render(request, 'all-images/image.html', {"gallery":gallery, 'locations':locations})
