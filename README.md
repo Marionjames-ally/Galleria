@@ -1,8 +1,6 @@
 # Galleria
 This is a python django based gallery where by a user can view images and search for the images using the category name 
-# blog-x
 
-#### This application enables user add, view and vote for a pitch. 2/12/2019
 #### Marion James
 ## Description
 This app is a simple platform for both users and writers of blogs. The writers sign in to the app and are able to add new posts, delete old posts and even update the existing posts. The users on the other end are able to view the blogs posted and even comment on the as they desire.
