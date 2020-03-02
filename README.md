@@ -1,7 +1,8 @@
 # Galleria
 This is a python django based gallery where by a user can view images and search for the images using the category name 
 
-#### Marion James
+## Developer
+##### Marion James
 ## Description
 This app is a simple platform for both users and writers of blogs. The writers sign in to the app and are able to add new posts, delete old posts and even update the existing posts. The users on the other end are able to view the blogs posted and even comment on the as they desire.
 
@@ -22,7 +23,7 @@ This app is a simple platform for both users and writers of blogs. The writers s
 * heroku
 
 ## CODEBEAT BADGE
-
+[![codebeat badge](https://codebeat.co/badges/99808350-bb44-48e0-b08c-fa0c238f70b9)](https://codebeat.co/projects/github-com-marionjames-ally-galleria-master)
 
 ## Support and contact details
 If in any case you come across any isssues when using this application, kindly contact me.@[marionjames2018@gmail.com]. Incase of any contributions fork the repo add your contributions.
