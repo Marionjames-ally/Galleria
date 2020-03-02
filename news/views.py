@@ -1,6 +1,7 @@
 from django.shortcuts import render , redirect
 from django.http import Http404,request,HttpResponse
 from .models import Image,Category,Location
+from copy import deepcopy
 
 # Create your views here.
 def all_photos(request):
@@ -30,3 +31,4 @@ def single_image(request, image_id):
 
     locations = Location.get_location()
     return render(request, 'all-images/image.html', {"gallery":gallery, 'locations':locations})
+
