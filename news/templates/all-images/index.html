@@ -3,37 +3,24 @@
 {% block content %}
 
 {{block.super}}
-<h1>welcome to my gallery</h1>
+ <div class="container">
  {% for photos in gallery %}
-    <div class="card" style="position: relative; width: 30%; margin-top:2em !important; margin-bottom: auto; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
-        <a href="{% url 'image' photos.id %}">
-            <img class="card-img-top w3-hover-grayscale" src="{{photos.image.url}}" alt="Card image cap" width="100%">
-        </a>
-        <div class="card-body" style="">
-            <p class="title"><h1>{{ photos.title }}</h1></p>
-            <p class="card-text">
-                {{ photos.description | truncatechars:50 }}
-            </p>
-        </div>
-        <hr width="80%" style="jstify:center;">
-        <p style="width:100%;">
-            <a href="{% url 'image' photos.id %}">
-                <button class="prof" style="width:83%;border: none; outline: 0; display: inline-block; padding: 8px; color: white; background-color: #000; text-align: center; cursor: pointer; font-size: 14px;">
-                    View More
-                </button>
-            </a>
-            <br><br>
-          
-        </p>
-    </div>
-    {% empty %}
-    <p>
-        you got nothing to show
-    </p>
+
+    <div style="width: 60%;">
+                <hr>
+            <div class="row" style="justify-content: space-around;margin-top:2em;">
+            <img src="{{photos.post_image.url}}"  class="img-responsive" alt="" width="25%" style="margin-left:3em;"> 
+                <p style="margin-left: 1.5em;"><strong>category: </strong> <em>{{photos.image_category}}</em></p>
+                <a href="{% url 'image' photos.id %}" class="btn btn-outline-warning" style="height:30px;">view more</a>
+
+              </footer>
+            </div>
+          </div>
     {% endfor %}
 </div>
 <div>
      
-</div> 
+</div>
+</di
 
 {% endblock %}
