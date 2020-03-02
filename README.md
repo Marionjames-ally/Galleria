@@ -11,9 +11,9 @@ This app is a simple platform for both users and writers of blogs. The writers s
 ## BDD
 | Behaviour | Output |
 | :---------------- | :---------------: |
-| open the app in browser | the landing page with different images from different categories  |
-| click on search form in the navbar | shows all the images for that category |
-| click on on the view more | user can be able to view all details about the image |
+| the user should open the app in browser | the user sees the landing page with different images from different categories  |
+| the user should click on search form in the navbar |the application shows all the images for that category |
+| the user should click on on the view more | user can be able to view all details about the image |
 
 ## Technologies Used
 * Django 
